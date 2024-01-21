@@ -3,13 +3,14 @@
 import { useState } from "react";
 import TextInput from "../TextInput";
 import { useRouter } from "next/navigation";
+import ListInput from "../ListInput";
 
 export default function UserProfile({ id, firstName, lastName, location, interests, phoneNumber }) {
 
   const [_firstName, setFirstName] = useState(firstName || "");
   const [_lastName, setLastName] = useState(lastName || "");
   const [_location, setLocation] = useState(location || "");
-  const [_interests, setInterests] = useState(interests || "");
+  const [_interests, setInterests] = useState(interests || []);
   const [_phoneNumber, setPhoneNumber] = useState(phoneNumber || "");
 
   const [editing, toggleEditing] = useState(false);
@@ -59,7 +60,7 @@ export default function UserProfile({ id, firstName, lastName, location, interes
         <TextInput placeholder={"First Name"} value={_firstName} onChange={(e) => setFirstName(e.target.value)} disabled={!editing} />
         <TextInput placeholder={"Last Name"} value={_lastName} onChange={(e) => setLastName(e.target.value)} disabled={!editing} />
         <TextInput placeholder={"Location"} value={_location} onChange={(e) => setLocation(e.target.value)} disabled={!editing} />
-        <TextInput placeholder={"Interests"} value={_interests} onChange={(e) => setInterests(e.target.value)} disabled={!editing} />
+        <ListInput label={"Interests"} value={_interests} onChange={setInterests} disabled={!editing} />
         <TextInput placeholder={"Phone Number"} value={_phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} disabled={!editing} />
 
         <button
