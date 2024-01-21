@@ -9,7 +9,6 @@ export const ViewPlan = ({ plan }) => {
   const router = useRouter()
 
   const joinEvent = async (e) => {
-    console.log("ONE")
     e.preventDefault();
     await fetch(`/api/plan/addAttendee`, {
       method: 'POST',
@@ -22,13 +21,11 @@ export const ViewPlan = ({ plan }) => {
         userId: user.sub,
       }),
     })
-    console.log("TWO")
 
     router.refresh()
   }
 
   const unjoinEvent = async (e) => {
-    console.log(plan, plan["id"])
     e.preventDefault();
     await fetch(`/api/plan/removeAttendee`, {
       method: 'POST',
@@ -41,7 +38,6 @@ export const ViewPlan = ({ plan }) => {
         userId: user.sub,
       }),
     })
-    console.log("TEST")
 
     router.refresh()
   }
@@ -51,10 +47,10 @@ export const ViewPlan = ({ plan }) => {
       {plan}
       <form onSubmit={joinEvent} className="flex gap-3 flex-col items-center">
         <button
-            type="submit"
-            className="  bg-slate-50 rounded-full p-1 border border-slate-400 text-slate-400 hover:text-slate-500 text-base hover:ring-0 hover:ring-slate-100 hover:border-slate-500"
-          >
-            <p className=" text-center">Join</p>
+          type="submit"
+          className="  bg-slate-50 rounded-full p-1 border border-slate-400 text-slate-400 hover:text-slate-500 text-base hover:ring-0 hover:ring-slate-100 hover:border-slate-500"
+        >
+          <p className=" text-center">Join</p>
         </button>
       </form>
 

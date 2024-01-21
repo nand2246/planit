@@ -12,6 +12,7 @@ const amaranth = Amaranth({
   display: 'swap',
   weight: '400'
 })
+import Navigation from '../components/Navigation.jsx'
 
 export default function Home() {
   return (
