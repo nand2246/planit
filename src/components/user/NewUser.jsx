@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 export const NewUser = () => {
   const { user, error, isLoading } = useUser();
@@ -30,7 +30,7 @@ export const NewUser = () => {
         lastName,
         location,
         interests,
-        phoneNumber
+        phoneNumber,
       }),
     })
 
