@@ -11,7 +11,7 @@ const inter = Inter({
 const OpaqueButton = ({ text, type, callback }) => {
   return (
     <div className="w-22 h-10 mx-1 items-start inline-flex">
-      <button className="w-22 h-10 px-4 bg-slate-400 rounded-md justify-center items-center gap-1 flex">
+      <button className="w-22 h-10 px-4 bg-slate-400 rounded-md justify-center items-center gap-1 flex" onClick={callback} type={type}>
         <div className={"text-white text-lg font-bold font-['Inter']" + inter.className}>{text}</div>
       </button>
     </div>

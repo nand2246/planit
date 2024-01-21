@@ -13,10 +13,11 @@ export default async function User() {
   const { firstName, lastName, location, phoneNumber, interests } = data;
 
   return (
-    <main className=" flex min-h-screen justify-center items-center bg-slate-50 ">
-      <div className="bg-slate-300 rounded-3xl py-6  h-[400px] w-[450px] flex flex-col text-slate-800">
-        <UserProfile id={user.sub} firstName={firstName} lastName={lastName} location={location} phoneNumber={phoneNumber} interests={interests} />
-      </div>
-    </main>
+    <main className="bg-orange-50 flex  justify-center items-center h-screen">
+      <h1 className="text-3xl text-center"></h1>
+      <ul className="px-6">
+        <UserProfile id={user.sub} firstName={firstName} lastName={lastName} location={location} phoneNumber={phoneNumber} interests={interests}  />
+      </ul>
+  </main>
   )
 }

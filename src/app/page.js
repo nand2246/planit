@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Image from 'next/image.js'
-import ProfileClient from '../components/User.jsx'
 import OpaqueButton from '@/components/buttons/OpaqueButton.jsx'
 
 import { Amaranth } from 'next/font/google'
@@ -12,7 +11,6 @@ const amaranth = Amaranth({
   display: 'swap',
   weight: '400'
 })
-import Navigation from '../components/Navigation.jsx'
 
 export default function Home() {
   return (
@@ -36,7 +34,7 @@ export default function Home() {
             <OpaqueButton text={"Login"}/>
           </a>
       </div>
-      <div className='w-screen h-screen items-center justify-center flex'>
+      <div className='w-screen h-screen items-center justify-center flex pb-80'>
         <div className={"w-80 h-72 w-fit text-stone-400 align-center justify-center text-8xl font-bold font-['Amaranth'] " + amaranth.className}>Make a <br/> plan,  <br/>make a <br/>friend.</div>
       </div>
 
