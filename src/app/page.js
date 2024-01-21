@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import React from 'react';
+import React from 'react'
 import ProfileClient from '../components/User.jsx'
 
 export default function Home() {
@@ -10,5 +10,5 @@ export default function Home() {
       <a href="/api/auth/logout">Logout</a>
       <ProfileClient></ProfileClient>
     </>
-  );
+  )
 }
