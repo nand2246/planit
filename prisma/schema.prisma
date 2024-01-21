@@ -6,32 +6,33 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
-  id           String @id
+  id String @id
 
-  lastName     String
-  firstName    String
-  phoneNumber  String
-  email        String
+  lastName    String
+  firstName   String
+  phoneNumber String
+  email       String
 
-  rating       Int
-  interests    String[]
-  location     String
+  rating    Int
+  interests String[]
+  location  String
 
-  plans        UsersOnPlans[]
+  plans UsersOnPlans[]
 
   createdPlans Plan[]
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Plan {
-  id           String @id @default(uuid())
+  id String @id @default(uuid())
 
   name         String
   description  String
@@ -43,20 +44,20 @@ model Plan {
   tags         String[]
   state        String
 
-  creator      User @relation(fields: [creatorId], references: [id])
-  creatorId    String
+  creator   User   @relation(fields: [creatorId], references: [id])
+  creatorId String
 
-  attendees    UsersOnPlans[]
+  attendees UsersOnPlans[]
 
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model UsersOnPlans {
-  user   User @relation(fields: [userId], references: [id])
-  userId String 
-  plan   Plan @relation(fields: [planId], references: [id])
-  planId String 
-  
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+  plan   Plan   @relation(fields: [planId], references: [id])
+  planId String
+
   @@id([userId, planId])
 }
