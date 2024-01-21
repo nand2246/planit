@@ -5,11 +5,12 @@ import { getSession } from '@auth0/nextjs-auth0';
 export default async function User() {
   const session = await getSession();
   const { user } = session;
-  const { firstName, lastName, location, phoneNumber, interests } = await prisma.user.findUnique({
+  const data = await prisma.user.findUnique({
     where: {
       id: user.sub,
     },
   });
+  const { firstName, lastName, location, phoneNumber, interests } = data;
 
   return (
     <main className=" flex min-h-screen justify-center items-center bg-slate-50 ">
