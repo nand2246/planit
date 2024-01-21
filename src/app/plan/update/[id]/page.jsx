@@ -1,5 +1,6 @@
 import { UpdatePlan } from '@/components/plan/UpdatePlan'
 import { prisma } from '@/lib/db'
+import Navigation from '@/components/Navigation'
 
 export default async function Plan({ params }) {
   const plan = await prisma.plan.findUnique({
@@ -26,6 +27,7 @@ export default async function Plan({ params }) {
           />
         </ul>
       </div>
+      <div><Navigation/></div>
     </main>
   )
 }

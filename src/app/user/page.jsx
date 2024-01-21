@@ -1,3 +1,4 @@
+import Navigation from '@/components/Navigation';
 import UserProfile from '@/components/user/UserProfile'
 import { prisma } from '@/lib/db'
 import { getSession } from '@auth0/nextjs-auth0';
@@ -18,6 +19,7 @@ export default async function User() {
       <ul className="px-6">
         <UserProfile id={user.sub} firstName={firstName} lastName={lastName} location={location} phoneNumber={phoneNumber} interests={interests}  />
       </ul>
+      <div><Navigation/></div>
   </main>
   )
 }

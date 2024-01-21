@@ -1,5 +1,5 @@
 import { NewPlan } from "@/components/plan/NewPlan";
-import { prisma } from "@/lib/db";
+import Navigation from "@/components/Navigation";
 
 export default async function Plan() {
 
@@ -8,6 +8,7 @@ export default async function Plan() {
       <div>
         <NewPlan />
       </div>
+    <div><Navigation/></div>
     </main>
   );
 }
