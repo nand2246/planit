@@ -18,7 +18,5 @@ export async function POST(req) {
     },
   })
 
-  console.log('phone ------', phoneNumber)
-
   return NextResponse.json({ message: 'Saved User' }, { status: 200 })
 }
