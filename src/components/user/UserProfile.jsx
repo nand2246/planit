@@ -4,6 +4,8 @@ import { useState } from "react";
 import TextInput from "../TextInput";
 import { useRouter } from "next/navigation";
 import ListInput from "../ListInput";
+import OpaqueButton from "../buttons/OpaqueButton";
+import TitleText from "../TitleText";
 
 export default function UserProfile({ id, firstName, lastName, location, interests, phoneNumber }) {
 
@@ -54,7 +56,9 @@ export default function UserProfile({ id, firstName, lastName, location, interes
     router.refresh();
   };
   return (
-    <div className="mx-8 mt-4 mb-6">
+    <div>
+      <TitleText text={"User details"}/>
+    <div className="w-96 h-100 bg-neutral-50 rounded-lg shadow p-7">
       <form onSubmit={update} className="flex gap-3 flex-col items-center">
 
         <TextInput placeholder={"First Name"} value={_firstName} onChange={(e) => setFirstName(e.target.value)} disabled={!editing} />
@@ -63,25 +67,24 @@ export default function UserProfile({ id, firstName, lastName, location, interes
         <ListInput label={"Interests"} value={_interests} onChange={setInterests} disabled={!editing} />
         <TextInput placeholder={"Phone Number"} value={_phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} disabled={!editing} />
 
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            toggleEditing(!editing)
-            reset();
-          }}
-          className="bg-slate-50 rounded-full p-1 border border-slate-400 text-slate-400 hover:text-slate-500 text-base hover:ring-0 hover:ring-slate-100 hover:border-slate-500">
-          <p className=" text-center">{editing ? "Cancel" : "Edit"}</p>
-        </button>
-
-        <button
-          type="submit"
-          disabled={!editing}
-          className="  bg-slate-50 rounded-full p-1 border border-slate-400 text-slate-400 hover:text-slate-500 text-base hover:ring-0 hover:ring-slate-100 hover:border-slate-500"
-        >
-          <p className=" text-center">Save</p>
-        </button>
+        <div className="w-fit justify-center">
+          <OpaqueButton 
+            text={editing ? 'Cancel' : 'Edit'}
+            callback={(e) => {
+              e.preventDefault();
+              console.log("HERE")
+              toggleEditing(!editing)
+              reset();
+            }}/>
+          <OpaqueButton 
+            text='Save'
+            type='submit'
+          />
+        </div>
       </form>
-    </div >
+    </div>
+    </div>
+
   )
 
 }

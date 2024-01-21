@@ -48,7 +48,7 @@ export const NewPlan = () => {
   };
   return (
     <div className="">
-      <TitleText/>
+      <TitleText text={"Plan it!"}/>
       <div className="w-96 h-100 bg-neutral-50 rounded-lg shadow p-7">
         <form onSubmit={create} className="flex gap-3 flex-col items-center">
           <TextInput
