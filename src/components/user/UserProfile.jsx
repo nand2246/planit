@@ -1,7 +1,5 @@
-"use client";
+'use client'
 
 export const UserProfile = ({ users }) => {
-	return(<div>
-		{users}
-	</div>)
+  return <div>{users}</div>
 }

@@ -1,27 +1,27 @@
-"use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+'use client'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export const NewUser = () => {
-  const [newItem, setNewItem] = useState("");
+  const [newItem, setNewItem] = useState('')
 
-  const router = useRouter();
+  const router = useRouter()
   const create = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     await fetch(`/api/user`, {
-      method: "POST",
-      credentials: "include",
+      method: 'POST',
+      credentials: 'include',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        firstName: newItem
+        firstName: newItem,
       }),
-    });
+    })
 
-    router.refresh();
-    setNewItem("");
-  };
+    router.refresh()
+    setNewItem('')
+  }
   return (
     <div className="mx-8 mt-4 mb-6">
       <form onSubmit={create} className="flex gap-3 items-center">
@@ -42,5 +42,5 @@ export const NewUser = () => {
         </button>
       </form>
     </div>
-  );
-};
+  )
+}
