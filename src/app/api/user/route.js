@@ -2,17 +2,19 @@ import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/db'
 
 export async function POST(req) {
-  const { firstName } = await req.json()
+  const { id, email, firstName, lastName, location, phoneNumber, interests } =
+    await req.json()
 
   await prisma.user.create({
     data: {
+      id,
       firstName,
-      lastName: 'yes',
-      phoneNumber: '123',
-      email: 'me@me.com',
+      lastName,
+      phoneNumber,
+      email,
       rating: 100,
-      interests: ['art', 'sport'],
-      location: 'here',
+      interests: [interests],
+      location,
     },
   })
 
